@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://marketfix.github.io/marketfixbiz/sitemap.xml
+Sitemap: https://themarketfix.co/sitemap.xml
