@@ -14,14 +14,10 @@
     state.x += (state.tx - state.x) * 0.1;
     state.y += (state.ty - state.y) * 0.1;
 
-    const rx = clamp(-state.y * 8, -9, 9);
-    const ry = clamp(state.x * 10, -11, 11);
     const mx = clamp(50 + state.x * 34, 8, 92);
     const my = clamp(42 + state.y * 30, 8, 92);
     const glow = clamp(0.35 + Math.abs(state.x) * 0.32 + Math.abs(state.y) * 0.2, 0.35, 0.88);
 
-    root.style.setProperty('--rx', `${rx.toFixed(2)}deg`);
-    root.style.setProperty('--ry', `${ry.toFixed(2)}deg`);
     root.style.setProperty('--mx', `${mx.toFixed(2)}%`);
     root.style.setProperty('--my', `${my.toFixed(2)}%`);
     root.style.setProperty('--glow', glow.toFixed(2));
