@@ -4,15 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#09090b" />
-  <title>MarketFix - Digital Business Card</title>
+  <title>Marketfix - Ready to do business?</title>
   <meta name="description" content="MarketFix is a lean growth studio for SaaS, digital services, legal services, and marketplaces. Paid ads, SEO, funnels, and AI automation." />
-  <meta property="og:title" content="MarketFix - Growth studio" />
+  <meta property="og:title" content="Marketfix - Ready to do business?" />
   <meta property="og:description" content="Paid acquisition, SEO, funnels, and AI automation. Built in Vilnius, working globally." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://themarketfix.co/" />
-  <meta property="og:image" content="https://themarketfix.co/assets/mark.svg" />
+  <meta property="og:image" content="https://themarketfix.co/assets/logo.webp" />
   <link rel="canonical" href="https://themarketfix.co/" />
-  <link rel="icon" href="assets/mark.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/favicon.png" />
   <link rel="manifest" href="site.webmanifest" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -21,7 +22,7 @@
     <div class="ambient ambient-one" aria-hidden="true"></div>
     <div class="ambient ambient-two" aria-hidden="true"></div>
 
-    <section class="card-scene" aria-label="MarketFix digital business card">
+    <section class="card-scene" aria-label="MarketFix contact card">
       <div class="card-shell" id="cardShell">
         <article class="business-card" id="businessCard">
           <section class="card-face card-front" aria-label="MarketFix card front">
@@ -33,7 +34,7 @@
             <header class="card-topline">
               <a class="brand-lockup" href="mailto:marketfixbiz@gmail.com?subject=Project%20inquiry%20-%20MarketFix" aria-label="Email MarketFix">
                 <span class="brand-mark" aria-hidden="true">
-                  <svg viewBox="0 0 64 64" role="img"><path d="M13 37.2h7.8l1.7 12.4a2.2 2.2 0 0 0 2.2 1.9h4.5l-2-14.3h3.2l19 8.6a3.2 3.2 0 0 0 4.5-2.9V21.1a3.2 3.2 0 0 0-4.5-2.9l-19 8.6H13a4 4 0 0 0-4 4v2.4a4 4 0 0 0 4 4Zm23.2-7.9 11.9-5.4v16.2l-11.9-5.4v-5.4ZM15 31.7h7.5v7H15v-7Zm38.5.4h.7a7.4 7.4 0 0 1 0 14.8h-.7v-4.4h.7a3 3 0 0 0 0-6h-.7v-4.4Z" /></svg>
+                  <img src="assets/logo.webp" width="96" height="96" alt="" />
                 </span>
                 <span><span id="brand-title" class="brand-name">MarketFix</span><span class="brand-line">Growth studio</span></span>
               </a>
@@ -57,8 +58,13 @@
           </section>
 
           <section class="card-face card-back" aria-label="MarketFix company details">
-            <div class="foil-field back-foil" aria-hidden="true"></div><div class="note-strip strip-three" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
-            <header class="back-header"><div><p class="eyebrow">Company details</p><h2>MarketFix</h2></div><button class="micro-button" type="button" id="flipToFront" aria-controls="businessCard">Back</button></header>
+            <div class="foil-field back-foil" aria-hidden="true"></div>
+            <div class="note-strip strip-three" aria-hidden="true"></div>
+            <div class="grain" aria-hidden="true"></div>
+            <header class="back-header">
+              <div><p class="eyebrow">Company details</p><h2>MarketFix</h2></div>
+              <button class="micro-button" type="button" id="flipToFront" aria-controls="businessCard">Back</button>
+            </header>
             <dl class="detail-grid">
               <div><dt>Email</dt><dd><a href="mailto:marketfixbiz@gmail.com">marketfixbiz@gmail.com</a></dd></div>
               <div><dt>Company</dt><dd>MB Marketifx</dd></div>
@@ -67,16 +73,11 @@
             </dl>
             <p class="legal-note">No cookies. No tracking pixels. This card stores nothing unless you choose to email or copy contact details.</p>
           </section>
+          <div class="toast" id="toast" role="status" aria-live="polite">Email copied</div>
         </article>
       </div>
     </section>
-
-    <nav class="under-card" aria-label="Card utilities">
-      <button class="utility-button" type="button" id="motionButton">Enable motion shine</button>
-      <a class="utility-link" href="mailto:marketfixbiz@gmail.com?subject=Project%20inquiry%20-%20MarketFix">marketfixbiz@gmail.com</a>
-    </nav>
   </main>
-  <div class="toast" id="toast" role="status" aria-live="polite">Email copied</div>
   <script src="script.js" defer></script>
 </body>
 </html>
