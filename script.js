@@ -6,9 +6,10 @@
   const flipToFront = document.getElementById('flipToFront');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const coarsePointer = window.matchMedia('(hover: none), (pointer: coarse)').matches;
   const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
-  const state = { x: 0, y: 0, tx: 0, ty: 0, raf: 0, rect: null };
+  const state = { x: 0, y: 0, tx: 0, ty: 0, raf: 0, rect: null, orientationListening: false };
 
   const applyTilt = () => {
     state.x += (state.tx - state.x) * 0.1;
@@ -51,14 +52,6 @@
     state.rect = null;
     setTarget(0, 0);
   });
-  shell.addEventListener('touchmove', (event) => {
-    const touch = event.touches && event.touches[0];
-    if (touch) setTargetFromPoint(touch.clientX, touch.clientY);
-  }, { passive: true });
-  shell.addEventListener('touchend', () => {
-    state.rect = null;
-    setTarget(0, 0);
-  }, { passive: true });
   window.addEventListener('resize', () => {
     state.rect = null;
   }, { passive: true });
@@ -73,11 +66,29 @@
 
   const handleOrientation = (event) => {
     if (event.gamma === null || event.beta === null) return;
-    setTarget(clamp(event.gamma / 28, -1, 1), clamp((event.beta - 45) / 32, -1, 1));
+    setTarget(clamp(event.gamma / 32, -1, 1), clamp((event.beta - 45) / 38, -1, 1));
+  };
+
+  const startOrientationEffects = async () => {
+    if (reduceMotion || state.orientationListening || !('DeviceOrientationEvent' in window)) return;
+
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+      try {
+        const permission = await DeviceOrientationEvent.requestPermission();
+        if (permission !== 'granted') return;
+      } catch (_) {
+        return;
+      }
+    }
+
+    window.addEventListener('deviceorientation', handleOrientation, true);
+    state.orientationListening = true;
   };
 
   if ('DeviceOrientationEvent' in window && typeof DeviceOrientationEvent.requestPermission !== 'function') {
-    window.addEventListener('deviceorientation', handleOrientation, true);
+    startOrientationEffects();
+  } else if (coarsePointer) {
+    shell.addEventListener('pointerdown', startOrientationEffects, { passive: true, once: true });
   }
 
   setTarget(0, 0);
