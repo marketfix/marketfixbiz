@@ -1,0 +1,1 @@
+Trigger the temporary SharpEmu native Apple Silicon diagnostic workflow.
