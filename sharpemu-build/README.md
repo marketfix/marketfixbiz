@@ -1,0 +1,1 @@
+Temporary build harness for the SharpEmu Apple Silicon diagnostic artifact.
