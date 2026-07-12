@@ -6,6 +6,9 @@ on:
     branches:
       - main
       - sharpemu-native-arm64-experiment
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
